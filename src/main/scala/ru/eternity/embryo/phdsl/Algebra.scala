@@ -158,7 +158,7 @@ case class Subtract[T](minuend: Algebra[T], subtrahend: Algebra[T]) extends Alge
   override def toMathML = {
     <mrow>
       {minuend.toMathML}
-      <mo>+</mo>
+      <mo>-</mo>
       {subtrahend.toMathML}
     </mrow>
   }
