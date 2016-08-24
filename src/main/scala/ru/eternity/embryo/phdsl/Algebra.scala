@@ -75,8 +75,8 @@ case class Variable[T](symbol: Symbol, value: Algebra[T] = null, implicit val re
 object Variable {
 
   implicit class VariableSymbol(symbol: Symbol) {
-    def @=(value: Algebra[Value], resolver: Symbol => Algebra[Value] = (symbol) => null) = Variable(symbol, value, resolver)
-    def @<(arguments: Algebra[Value]*)(body: => Algebra[Value]) = Function(symbol, arguments:_*)(body)
+    def treatAs(value: Algebra[Value], resolver: Symbol => Algebra[Value] = (symbol) => null) = Variable(symbol, value, resolver)
+    def applyTo(arguments: Algebra[Value]*)(body: => Algebra[Value]) = Function(symbol, arguments:_*)(body)
     def <=(arguments: Algebra[Value]*) = Function[Value](symbol, arguments:_*)
     def <<<(value: Algebra[Value]) = Function[Value](symbol)(value)
   }

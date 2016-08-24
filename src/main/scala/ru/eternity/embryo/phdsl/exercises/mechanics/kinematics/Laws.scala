@@ -10,7 +10,7 @@ object Laws {
 
   val laws = Map(
     "x(t) if a = const" -> {
-      ('x @< ref('t)) {
+      ('x applyTo ref('t)) {
         ref('x0) + ref('v0) * ref('t) + ref('a) * (ref('t) ^ 2) / 2.0
       }
     }

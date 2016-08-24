@@ -28,17 +28,17 @@ object Simplest {
     conditions = {
       Map(
         names('v) -> {
-          'v @= {
+          'v treatAs {
             1.0(length / time)
           }
         },
         names('t1) -> {
-          't1 @= {
+          't1 treatAs {
             10.0(time)
           }
         },
         names('t0) -> {
-          't0 @= {
+          't0 treatAs {
             0.0(time)
           }
         }
@@ -53,7 +53,7 @@ object Simplest {
       Map(
         "Вычисляем расстояние" -> {
           Consequence(conditions(names('v)), conditions(names('t0)), conditions(names('t1)), targets(names('x1)), Laws.laws("x(t) if a = const"))({
-            ('x1 @< (ref('t1))) {
+            ('x1 applyTo (ref('t1))) {
               get('v) * (get('t1) - get('t0))
             }
           })
