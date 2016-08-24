@@ -11,10 +11,10 @@ object Simplest {
   import Function._
 
   val names = Map[Symbol, String](
-    'v -> "Скорость тела",
-    't1 -> "Время движения тела",
-    't0 -> "Время начала движения тела",
-    'x1 -> "Пройденное расстояние"
+    'v -> "Body velocity",
+    't1 -> "Body movement duration",
+    't0 -> "Movement start time",
+    'x1 -> "Distance"
   )
 
   def get(symbol: Symbol) = @@(symbol, (symbol) => {
@@ -51,7 +51,7 @@ object Simplest {
     ),
     solution = (conditions: Map[String, Algebra[Value]], targets: Map[String, Algebra[Value]]) => {
       Map(
-        "Вычисляем расстояние" -> {
+        "Calculate distance" -> {
           Consequence(conditions(names('v)), conditions(names('t0)), conditions(names('t1)), targets(names('x1)), Laws.laws("x(t) if a = const"))({
             ('x1 applyTo (ref('t1))) {
               get('v) * (get('t1) - get('t0))
