@@ -81,7 +81,7 @@ object Variable {
     def <<<(value: Algebra[Value]) = Function[Value](symbol)(value)
   }
 
-  def @@(symbol: Symbol, resolver: Symbol => Algebra[Value]) = Variable[Value](symbol, null, resolver)
+  def getStatement(symbol: Symbol, resolver: Symbol => Algebra[Value]) = Variable[Value](symbol, null, resolver)
 
   def ref(symbol: Symbol) = Variable[Value](symbol, null, (symbol) => null)
 }

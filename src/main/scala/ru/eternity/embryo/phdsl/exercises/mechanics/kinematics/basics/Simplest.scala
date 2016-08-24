@@ -17,7 +17,7 @@ object Simplest {
     'x1 -> "Distance"
   )
 
-  def get(symbol: Symbol) = @@(symbol, (symbol) => {
+  def get(symbol: Symbol) = getStatement(symbol, (symbol) => {
     (Simplest.exercise.conditions(names(symbol)) match {
       case null => Simplest.exercise.targets(Simplest.exercise.conditions)(names(symbol))
       case value: Algebra[Value] => value
